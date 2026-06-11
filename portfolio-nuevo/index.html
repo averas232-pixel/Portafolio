@@ -1373,26 +1373,26 @@
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
 
     /* ── FORM ── */
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const st = document.getElementById('form-status');
-      const n = document.getElementById('name').value.trim();
-      const em = document.getElementById('email').value.trim();
-      const ms = document.getElementById('message').value.trim();
-      if (!n || !em || !ms) {
-        st.className = 'form-status err';
-        st.textContent = 'Por favor completa todos los campos.';
-        return;
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
-        st.className = 'form-status err';
-        st.textContent = 'Ingresa un correo válido.';
-        return;
-      }
-      st.className = 'form-status ok';
-      st.textContent = '¡Mensaje enviado! Me pondré en contacto pronto.';
-      this.reset();
-    });
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  const st = document.getElementById('form-status');
+  const n = document.getElementById('name').value.trim();
+  const em = document.getElementById('email').value.trim();
+  const ms = document.getElementById('message').value.trim();
+  if (!n || !em || !ms) {
+    e.preventDefault();
+    st.className = 'form-status err';
+    st.textContent = 'Por favor completa todos los campos.';
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
+    e.preventDefault();
+    st.className = 'form-status err';
+    st.textContent = 'Ingresa un correo válido.';
+    return;
+  }
+  st.className = 'form-status ok';
+  st.textContent = 'Enviando...';
+});
   </script>
 </body>
 </html>
