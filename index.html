@@ -1396,10 +1396,13 @@
 
   try {
     const res = await fetch(this.action, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(this)
-    });
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ name: n, email: em, message: ms })
+});
 
     if (res.ok) {
       st.textContent = '¡Mensaje enviado! Te responderé pronto.';
