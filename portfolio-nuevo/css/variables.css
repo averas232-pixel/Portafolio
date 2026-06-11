@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — Antony Vera Portfolio
+   Paleta: Premium Corporate Dark
+   ═══════════════════════════════════════════════ */
+
+:root {
+  /* ── Fondos ── */
+  --bg-root:       #04070f;
+  --bg-surface:    #080d1a;
+  --bg-card:       rgba(255,255,255,0.04);
+  --bg-card-hover: rgba(255,255,255,0.07);
+  --bg-overlay:    rgba(4, 7, 15, 0.92);
+
+  /* ── Paleta Premium ── */
+  --indigo:        #818cf8;
+  --indigo-bright: #a5b4fc;
+  --indigo-dim:    #6366f1;
+  --indigo-glow:   rgba(129, 140, 248, 0.18);
+
+  --cyan:          #22d3ee;
+  --cyan-dim:      #06b6d4;
+  --cyan-glow:     rgba(34, 211, 238, 0.15);
+
+  --gold:          #fbbf24;
+  --gold-dim:      #f59e0b;
+  --gold-glow:     rgba(251, 191, 36, 0.15);
+
+  /* Legacy aliases */
+  --green:         var(--indigo-bright);
+  --green-dim:     var(--indigo-dim);
+  --green-glow:    var(--indigo-glow);
+  --orange:        var(--gold);
+  --orange-glow:   var(--gold-glow);
+
+  /* ── Texto ── */
+  --text-primary:  #f1f5f9;
+  --text-secondary:#94a3b8;
+  --text-dim:      #475569;
+
+  /* ── Bordes glassmorphism ── */
+  --border:        rgba(255,255,255,0.07);
+  --border-green:  rgba(129,140,248,0.3);
+  --border-cyan:   rgba(34,211,238,0.25);
+
+  /* ── Tipografía ── */
+  --font-display:  'Orbitron', monospace;
+  --font-body:     'Rajdhani', sans-serif;
+  --font-code:     'JetBrains Mono', monospace;
+
+  /* ── Espaciado ── */
+  --nav-h:         70px;
+  --section-py:    110px;
+  --container:     1200px;
+  --radius:        12px;
+  --radius-lg:     20px;
+
+  /* ── Sombras ── */
+  --shadow-green:  0 0 40px rgba(129,140,248,0.25);
+  --shadow-cyan:   0 0 40px rgba(34,211,238,0.2);
+  --shadow-card:   0 8px 40px rgba(0,0,0,0.6);
+
+  /* ── Transiciones ── */
+  --transition:    all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  --spring:        all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
