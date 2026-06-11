@@ -1277,7 +1277,7 @@
           </div>
         </div>
 
-        <form class="contact-form reveal-right d1" id="contact-form" action="https://formspree.io/f/mzdqavll" method="POST" novalidate></form>
+        <form class="contact-form reveal-right d1" id="contact-form" action="https://formspree.io/f/mzdqavll" method="POST" novalidate >
           <div class="form-group">
             <label for="name">Nombre</label>
             <input type="text" id="name" name="name" placeholder="Tu nombre completo" autocomplete="name" maxlength="100" required />
@@ -1372,26 +1372,47 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
 
-    /* ── FORM ── */
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+  /* ── FORM ── */
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
   const st = document.getElementById('form-status');
-  const n = document.getElementById('name').value.trim();
+  const n  = document.getElementById('name').value.trim();
   const em = document.getElementById('email').value.trim();
   const ms = document.getElementById('message').value.trim();
+
   if (!n || !em || !ms) {
-    e.preventDefault();
     st.className = 'form-status err';
     st.textContent = 'Por favor completa todos los campos.';
     return;
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
-    e.preventDefault();
     st.className = 'form-status err';
     st.textContent = 'Ingresa un correo válido.';
     return;
   }
+
   st.className = 'form-status ok';
   st.textContent = 'Enviando...';
+
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(this)
+    });
+
+    if (res.ok) {
+      st.textContent = '¡Mensaje enviado! Te responderé pronto.';
+      this.reset();
+    } else {
+      const data = await res.json();
+      st.className = 'form-status err';
+      st.textContent = data?.errors?.[0]?.message || 'Error al enviar. Intenta de nuevo.';
+    }
+  } catch {
+    st.className = 'form-status err';
+    st.textContent = 'Error de red. Verifica tu conexión.';
+  }
 });
   </script>
 </body>
