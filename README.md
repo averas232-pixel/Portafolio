@@ -2,7 +2,7 @@
 
 Sitio web de portfolio personal desarrollado con HTML, CSS y JavaScript.
 
-**En vivo:** [antony.is-a.dev](https://antony.is-a.dev)
+**Link:** [antonyvera2706.is-a.dev](https://antony.is-a.dev)
 
 ## Tecnologías
 - HTML, CSS y JavaScript vanilla
