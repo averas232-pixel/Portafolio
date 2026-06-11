@@ -1405,8 +1405,10 @@
 });
 
     if (res.ok) {
-      st.textContent = '¡Mensaje enviado! Te responderé pronto.';
-      this.reset();
+  st.className = 'form-status ok';
+  st.style.display = 'block';
+  st.textContent = '¡Mensaje enviado! Te responderé pronto.';
+  this.reset();
     } else {
       const data = await res.json();
       st.className = 'form-status err';
